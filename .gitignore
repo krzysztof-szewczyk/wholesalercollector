@@ -1,0 +1,19 @@
+.classpath
+.class
+src/main/resources/application-localhost.yml
+
+# Gradle
+.idea/
+.gradle/
+
+# IntelliJ
+out/
+build/
+src/main/resources/temp/
+
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# Docker
+Dockerfile

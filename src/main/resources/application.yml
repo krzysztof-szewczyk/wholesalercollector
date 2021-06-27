@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: wholesalercollector
+  profiles:
+    active:
+      - localhost
+
+logging:
+  level:
+    com.rutkowski.strefaoutdoor: DEBUG
+
+wholesale:
+  kolba:
+    login:
+      url: ENC(39FCrlAbnkKDCDsOY7mAKIZy3eyAouwdOyMOJa031yQ5CoYJriP5G0GV8192pQoh)
+      email: ENC(ZKcBVJbND+IyHB5xQz39wTu87M5y0V8SmHc4z1ouqww=)
+      password: ENC(IHMH8rc1oORn6rTzZVklP0KQEVdTSISh)
+    url: ENC(6UgR+ZsJpTs2mesrj/cBJoWTaLiTtMhTG5zvA9SYADVHNAihsGzJwKjKHk2zzQ1w/JrzIehvPhg=)
+  crag:
+    url: ENC(t1i/Jp5rrEw80AAefiJ4OfgvyezVTMWRiK42x020Mlfl3O6H7BI130p6CLUiPoD2Lk5DZzQ67D4LudPJm4qbz3y0CRYD36g11NkTgPxmMeuFCLOe3SO6AA==)
+  raven:
+    url: ENC(B3TnUq9zCXCn1dyuAIyTCKQbzRSLV/IAxUYutZWdgsi+mtF1ebfW7Xm8ziuYP1jQjwUXdPSb13nRYLYQWjuKKciySPMxYupY2FI0Tx3zOoU=)
+
+jasypt:
+  encryptor:
+    password: ${JASYPT_ENCRYPTOR_PASSWORD:}
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator

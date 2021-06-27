@@ -1,0 +1,9 @@
+apply plugin: "org.sonarqube"
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.projectName", "strefaoutdoor"
+        property "sonar.host.url", "http://localhost:9000"
+    }
+}

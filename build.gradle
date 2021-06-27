@@ -1,0 +1,54 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.github.mowedgrass:jasypt-gradle-boot-plugin:0.1.33'
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id "org.sonarqube" version "${sonarqube_version}"
+}
+
+group = 'com.rutkowski'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+apply from: "gradle/sonar.gradle"
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+	compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.4.0-b180830.0438'
+	compile group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.5.0'
+	compile group: 'com.opencsv', name: 'opencsv', version: '5.1'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+	compile group: 'com.github.ozlerhakan', name: 'poiji', version: '3.1.0'
+	compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.50.0'
+	compile group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: '3.0.3'
+}
+
+test {
+	useJUnitPlatform()
+}
